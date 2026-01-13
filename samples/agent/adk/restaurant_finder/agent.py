@@ -58,10 +58,9 @@ AGENT_INSTRUCTION = """
         b. After receiving the data, you MUST follow the instructions precisely to generate the final a2ui UI JSON, using the appropriate UI example from the `prompt_builder.py` based on the number of restaurants.
 
     2.  **For getting directions (when you receive a query like 'GET_DIRECTIONS_EXAMPLE...'):**
-        a. Use the compute_routes tool to compute the routes.
-        b. You MUST use the appropriate UI example from `prompt_builder.py` to generate the UI, populating the `dataModelUpdate.contents` with the details from the user's query.
-        c. Use the address in your input as the destination address for the directions.
-        d. Use 601 N 34th St, Seattle, WA 98103 as the starting address for the directions.
+        a. You MUST use the appropriate UI example from `prompt_builder.py` to generate the UI, populating the `dataModelUpdate.contents` with the details from the user's query.
+        b. Use the restaurant address in your input as the destinationAddress for the directions.
+        c. Use 601 N 34th St, Seattle, WA 98103 as the originAddress for the directions.
 
     3.  **For confirming a booking (when you receive a query like 'User submitted a booking...'):**
         a. You MUST use the appropriate UI example from `prompt_builder.py` to generate the confirmation UI, populating the `dataModelUpdate.contents` with the final booking details.

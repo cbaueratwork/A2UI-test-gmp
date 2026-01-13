@@ -129,7 +129,9 @@ RESTAURANT_UI_EXAMPLES = """
     "components": [
       {{ "id": "get-directions-form-column", "component": {{ "Column": {{ "children": {{ "explicitList": ["get-directions-title", "google-map", "restaurant-image", "restaurant-address", "party-size-field", "datetime-field", "dietary-field", "submit-button"] }} }} }} }},
       {{ "id": "get-directions-title", "component": {{ "Text": {{ "usageHint": "h2", "text": {{ "path": "title" }} }} }} }},
-      {{ "id": "google-map", "component": {{ "GoogleMap": {{ "lat": 47, "lng": -122, "zoom": 12, "destinationAddress": {{ "path": "/items/0/address" }} }} }} }},
+      {{ "id": "google-map", "component": {{ "GoogleMap": {{ "lat": 47, "lng": -122, "zoom": 12, "destinationAddress": {{ "path": "destinationAddress" }}, "originAddress": {{ "path": "originAddress" }} }} }} }},
+      {{ "id": "origin-address", "component": {{ "Text": {{ "text": {{ "path": "originAddress" }} }} }} }},
+      {{ "id": "destination-address", "component": {{ "Text": {{ "text": {{ "path": "destinationAddress" }} }} }} }},
       {{ "id": "restaurant-image", "component": {{ "Image": {{ "url": {{ "path": "imageUrl" }} }} }} }},
       {{ "id": "restaurant-address", "component": {{ "Text": {{ "text": {{ "path": "address" }} }} }} }}
     ]
@@ -139,8 +141,10 @@ RESTAURANT_UI_EXAMPLES = """
     "path": "/",
     "contents": [
       {{ "key": "title", "valueString": "Directions to [RestaurantName]" }},
-      {{ "key": "address", "valueString": "[Restaurant Address]" }},
+      {{ "key": "address", "valueString": "[RestaurantAddress]" }},
       {{ "key": "restaurantName", "valueString": "[RestaurantName]" }}
+      {{ "key": "destinationAddress", "valueString": "[RestaurantAddress]" }}
+      {{ "key": "originAddress", "valueString": "[OriginAddress]" }}
     ]
   }} }}
 ]

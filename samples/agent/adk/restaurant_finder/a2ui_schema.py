@@ -94,6 +94,10 @@ A2UI_SCHEMA = r'''
                       "destinationAddress": {
                         "type": "string",
                         "description": "The destination address to pin on the map"
+                      },
+                      "originAddress": {
+                        "type": "string",
+                        "description": "The origin address to pin on the map"
                       }
                     }
                   },

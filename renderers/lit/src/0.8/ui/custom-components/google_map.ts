@@ -14,6 +14,7 @@
  limitations under the License.
  */
 
+import '@googlemaps/extended-component-library/route_overview.js';
 import { html, css, nothing, PropertyValues } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 import { NumberValue, StringValue } from "../../types/primitives.js";
@@ -257,11 +258,13 @@ export class GoogleMap extends Root {
           zoom="${zoom}"
           map-id="DEMO_MAP_ID"
         >
+        ${this.destinationAddress ? html`
         <gmpx-route-overview
             origin-address="${this.originAddress}"
             destination-address="${this.destinationAddress}"
             travel-mode="transit">
         </gmpx-route-overview>
+        ` : nothing}
         </gmp-map>
       </section>
     `;
