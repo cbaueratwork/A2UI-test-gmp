@@ -94,11 +94,11 @@ class RestaurantAgentExecutor(AgentExecutor):
             action = ui_event_part.get("actionName")
             ctx = ui_event_part.get("context", {})
 
-            if action == "book_restaurant":
+            if action == "get_directions":
                 restaurant_name = ctx.get("restaurantName", "Unknown Restaurant")
                 address = ctx.get("address", "Address not provided")
                 image_url = ctx.get("imageUrl", "")
-                query = f"USER_WANTS_TO_BOOK: {restaurant_name}, Address: {address}, ImageURL: {image_url}"
+                query = f"USER_WANTS_TO_GET_DIRECTIONS: {restaurant_name}, Address: {address}, ImageURL: {image_url}"
 
             elif action == "submit_booking":
                 restaurant_name = ctx.get("restaurantName", "Unknown Restaurant")

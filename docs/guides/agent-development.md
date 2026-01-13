@@ -133,7 +133,7 @@ To generate the response, you MUST follow these rules:
 -   If the query is for a list of restaurants, use the restaurant data you have already received from the `get_restaurants` tool to populate the `dataModelUpdate.contents` array (e.g., as a `valueMap` for the "items" key).
 -   If the number of restaurants is 5 or fewer, you MUST use the `SINGLE_COLUMN_LIST_EXAMPLE` template.
 -   If the number of restaurants is more than 5, you MUST use the `TWO_COLUMN_LIST_EXAMPLE` template.
--   If the query is to book a restaurant (e.g., "USER_WANTS_TO_BOOK..."), you MUST use the `BOOKING_FORM_EXAMPLE` template.
+-   If the query is to book a restaurant (e.g., "USER_WANTS_TO_GET_DIRECTIONS..."), you MUST use the `GET_DIRECTIONS_EXAMPLE` template.
 -   If the query is a booking submission (e.g., "User submitted a booking..."), you MUST use the `CONFIRMATION_EXAMPLE` template.
 
 {RESTAURANT_UI_EXAMPLES}

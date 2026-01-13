@@ -15,6 +15,7 @@
  */
 
 import { CustomElementConstructorOf } from "./ui.js";
+import { GoogleMap } from "./custom-components/google_map.js";
 
 export class ComponentRegistry {
   private registry: Map<string, CustomElementConstructorOf<HTMLElement>> =

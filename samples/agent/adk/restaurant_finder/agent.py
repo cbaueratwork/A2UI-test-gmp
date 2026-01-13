@@ -23,6 +23,9 @@ from google.adk.agents.llm_agent import LlmAgent
 from google.adk.artifacts import InMemoryArtifactService
 from google.adk.memory.in_memory_memory_service import InMemoryMemoryService
 from google.adk.models.lite_llm import LiteLlm
+from google.adk.tools.mcp_tool import McpToolset
+from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
+from mcp import StdioServerParameters
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
@@ -34,6 +37,15 @@ from prompt_builder import (
 )
 from tools import get_restaurants
 
+google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+
+if not google_maps_api_key:
+    # Fallback or direct assignment for testing - NOT RECOMMENDED FOR PRODUCTION
+    google_maps_api_key = "YOUR_GOOGLE_MAPS_API_KEY_HERE" # Replace if not using env var
+    if google_maps_api_key == "YOUR_GOOGLE_MAPS_API_KEY_HERE":
+        print("WARNING: GOOGLE_MAPS_API_KEY is not set. Please set it as an environment variable or in the script.")
+     
+
 logger = logging.getLogger(__name__)
 
 AGENT_INSTRUCTION = """
@@ -42,11 +54,14 @@ AGENT_INSTRUCTION = """
     To achieve this, you MUST follow this logic:
 
     1.  **For finding restaurants:**
-        a. You MUST call the `get_restaurants` tool. Extract the cuisine, location, and a specific number (`count`) of restaurants from the user's query (e.g., for "top 5 chinese places", count is 5).
+        a. Look for five restaurants based on the user's query. For each item, make sure you know the name, address, and phone number.
         b. After receiving the data, you MUST follow the instructions precisely to generate the final a2ui UI JSON, using the appropriate UI example from the `prompt_builder.py` based on the number of restaurants.
 
-    2.  **For booking a table (when you receive a query like 'USER_WANTS_TO_BOOK...'):**
-        a. You MUST use the appropriate UI example from `prompt_builder.py` to generate the UI, populating the `dataModelUpdate.contents` with the details from the user's query.
+    2.  **For getting directions (when you receive a query like 'GET_DIRECTIONS_EXAMPLE...'):**
+        a. Use the compute_routes tool to compute the routes.
+        b. You MUST use the appropriate UI example from `prompt_builder.py` to generate the UI, populating the `dataModelUpdate.contents` with the details from the user's query.
+        c. Use the address in your input as the destination address for the directions.
+        d. Use 601 N 34th St, Seattle, WA 98103 as the starting address for the directions.
 
     3.  **For confirming a booking (when you receive a query like 'User submitted a booking...'):**
         a. You MUST use the appropriate UI example from `prompt_builder.py` to generate the confirmation UI, populating the `dataModelUpdate.contents` with the final booking details.
@@ -108,7 +123,26 @@ class RestaurantAgent:
             name="restaurant_agent",
             description="An agent that finds restaurants and helps book tables.",
             instruction=instruction,
-            tools=[get_restaurants],
+            tools=[
+        McpToolset(
+            connection_params=StdioConnectionParams(
+                server_params = StdioServerParameters(
+                    command='npx',
+                    args=[
+                        "-y",
+                        "@modelcontextprotocol/server-google-maps",
+                    ],
+                    # Pass the API key as an environment variable to the npx process
+                    # This is how the MCP server for Google Maps expects the key.
+                    env={
+                        "GOOGLE_MAPS_API_KEY": google_maps_api_key
+                    }
+                ),
+            ),
+            # You can filter for specific Maps tools if needed:
+            # tool_filter=['get_directions', 'find_place_by_id']
+        )
+    ],
         )
 
     async def stream(self, query, session_id) -> AsyncIterable[dict[str, Any]]:

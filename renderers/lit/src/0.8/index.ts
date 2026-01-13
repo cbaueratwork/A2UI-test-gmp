@@ -16,3 +16,11 @@
 
 export * from "./core.js";
 export * as UI from "./ui/ui.js";
+
+import { componentRegistry } from "./ui/component-registry";
+
+import {
+     GoogleMap
+} from "./ui/custom-components/google_map.js";
+
+componentRegistry.register("GoogleMap", GoogleMap, 'a2ui-google-map');

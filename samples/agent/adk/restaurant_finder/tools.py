@@ -53,3 +53,10 @@ def get_restaurants(cuisine: str, location: str,  tool_context: ToolContext, cou
             logger.error(f"  - Error: Failed to decode JSON from {file_path}")
 
     return json.dumps(items)
+
+def query_places(user_query: str, tool_context: ToolContext) -> str:
+    """Call this tool to fetch real data from the Places API to address the user's query."""
+    logger.info(f"--- TOOL CALLED: query_places ---")
+    logger.info(f"  - User Query: {user_query}")
+
+    return user_query

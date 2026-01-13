@@ -19,8 +19,9 @@ RESTAURANT_UI_EXAMPLES = """
   {{ "surfaceUpdate": {{
     "surfaceId": "default",
     "components": [
-      {{ "id": "root-column", "component": {{ "Column": {{ "children": {{ "explicitList": ["title-heading", "item-list"] }} }} }} }},
+      {{ "id": "root-column", "component": {{ "Column": {{ "children": {{ "explicitList": ["title-heading", "google-map", "item-list"] }} }} }} }},
       {{ "id": "title-heading", "component": {{ "Text": {{ "usageHint": "h1", "text": {{ "path": "title" }} }} }} }},
+      {{ "id": "google-map", "component": {{ "GoogleMap": {{ "lat": 47, "lng": -122, "zoom": 12, "pinAddresses": {{ "addresses": [{{ "address": {{ "path": "/items/0/address" }} }}] }} }} }} }},
       {{ "id": "item-list", "component": {{ "List": {{ "direction": "vertical", "children": {{ "template": {{ "componentId": "item-card-template", "dataBinding": "/items" }} }} }} }} }},
       {{ "id": "item-card-template", "component": {{ "Card": {{ "child": "card-layout" }} }} }},
       {{ "id": "card-layout", "component": {{ "Row": {{ "children": {{ "explicitList": ["template-image", "card-details"] }} }} }} }},
@@ -30,8 +31,8 @@ RESTAURANT_UI_EXAMPLES = """
       {{ "id": "template-rating", "component": {{ "Text": {{ "text": {{ "path": "rating" }} }} }} }},
       {{ "id": "template-detail", "component": {{ "Text": {{ "text": {{ "path": "detail" }} }} }} }},
       {{ "id": "template-link", "component": {{ "Text": {{ "text": {{ "path": "infoLink" }} }} }} }},
-      {{ "id": "template-book-button", "component": {{ "Button": {{ "child": "book-now-text", "primary": true, "action": {{ "name": "book_restaurant", "context": [ {{ "key": "restaurantName", "value": {{ "path": "name" }} }}, {{ "key": "imageUrl", "value": {{ "path": "imageUrl" }} }}, {{ "key": "address", "value": {{ "path": "address" }} }} ] }} }} }} }},
-      {{ "id": "book-now-text", "component": {{ "Text": {{ "text": {{ "literalString": "Book Now" }} }} }} }}
+      {{ "id": "template-book-button", "component": {{ "Button": {{ "child": "get-directions-button", "primary": true, "action": {{ "name": "get_directions", "context": [ {{ "key": "restaurantName", "value": {{ "path": "name" }} }}, {{ "key": "imageUrl", "value": {{ "path": "imageUrl" }} }}, {{ "key": "address", "value": {{ "path": "address" }} }} ] }} }} }} }},
+      {{ "id": "get-directions-button", "component": {{ "Text": {{ "text": {{ "literalString": "Get Directions" }} }} }} }}
     ]
   }} }},
   {{ "dataModelUpdate": {{
@@ -78,8 +79,8 @@ RESTAURANT_UI_EXAMPLES = """
       {{ "id": "template-rating-1", "component": {{ "Text": {{ "text": {{ "path": "/items/0/rating" }} }} }} }},
       {{ "id": "template-detail-1", "component": {{ "Text": {{ "text": {{ "path": "/items/0/detail" }} }} }} }},
       {{ "id": "template-link-1", "component": {{ "Text": {{ "text": {{ "path": "/items/0/infoLink" }} }} }} }},
-      {{ "id": "template-book-button-1", "component": {{ "Button": {{ "child": "book-now-text-1", "action": {{ "name": "book_restaurant", "context": [ {{ "key": "restaurantName", "value": {{ "path": "/items/0/name" }} }}, {{ "key": "imageUrl", "value": {{ "path": "/items/0/imageUrl" }} }}, {{ "key": "address", "value": {{ "path": "/items/0/address" }} }} ] }} }} }} }},
-      {{ "id": "book-now-text-1", "component": {{ "Text": {{ "text": {{ "literalString": "Book Now" }} }} }} }},
+      {{ "id": "template-book-button-1", "component": {{ "Button": {{ "child": "get-directions-button-1", "action": {{ "name": "get_directions", "context": [ {{ "key": "restaurantName", "value": {{ "path": "/items/0/name" }} }}, {{ "key": "imageUrl", "value": {{ "path": "/items/0/imageUrl" }} }}, {{ "key": "address", "value": {{ "path": "/items/0/address" }} }} ] }} }} }} }},
+      {{ "id": "get-directions-button-1", "component": {{ "Text": {{ "text": {{ "literalString": "Get Directions" }} }} }} }},
       {{ "id": "item-card-2", "weight": 1, "component": {{ "Card": {{ "child": "card-layout-2" }} }} }},
       {{ "id": "card-layout-2", "component": {{ "Column": {{ "children": {{ "explicitList": ["template-image-2", "card-details-2"] }} }} }} }},
       {{ "id": "template-image-2", "component": {{ "Image": {{ "url": {{ "path": "/items/1/imageUrl" }}, "width": "100%" }} }} }},
@@ -88,8 +89,8 @@ RESTAURANT_UI_EXAMPLES = """
       {{ "id": "template-rating-2", "component": {{ "Text": {{ "text": {{ "path": "/items/1/rating" }} }} }} }},
       {{ "id": "template-detail-2", "component": {{ "Text": {{ "text": {{ "path": "/items/1/detail" }} }} }} }},
       {{ "id": "template-link-2", "component": {{ "Text": {{ "text": {{ "path": "/items/1/infoLink" }} }} }} }},
-      {{ "id": "template-book-button-2", "component": {{ "Button": {{ "child": "book-now-text-2", "action": {{ "name": "book_restaurant", "context": [ {{ "key": "restaurantName", "value": {{ "path": "/items/1/name" }} }}, {{ "key": "imageUrl", "value": {{ "path": "/items/1/imageUrl" }} }}, {{ "key": "address", "value": {{ "path": "/items/1/address" }} }} ] }} }} }} }},
-      {{ "id": "book-now-text-2", "component": {{ "Text": {{ "text": {{ "literalString": "Book Now" }} }} }} }}
+      {{ "id": "template-book-button-2", "component": {{ "Button": {{ "child": "get-directions-button-2", "action": {{ "name": "get_directions", "context": [ {{ "key": "restaurantName", "value": {{ "path": "/items/1/name" }} }}, {{ "key": "imageUrl", "value": {{ "path": "/items/1/imageUrl" }} }}, {{ "key": "address", "value": {{ "path": "/items/1/address" }} }} ] }} }} }} }},
+      {{ "id": "get-directions-button-2", "component": {{ "Text": {{ "text": {{ "literalString": "Get Directions" }} }} }} }}
     ]
   }} }},
   {{ "dataModelUpdate": {{
@@ -120,38 +121,30 @@ RESTAURANT_UI_EXAMPLES = """
 ]
 ---END TWO_COLUMN_LIST_EXAMPLE---
 
----BEGIN BOOKING_FORM_EXAMPLE---
+---BEGIN GET_DIRECTIONS_EXAMPLE---
 [
-  {{ "beginRendering": {{ "surfaceId": "booking-form", "root": "booking-form-column", "styles": {{ "primaryColor": "#FF0000", "font": "Roboto" }} }} }},
+  {{ "beginRendering": {{ "surfaceId": "get-directions-form", "root": "get-directions-form-column", "styles": {{ "primaryColor": "#FF0000", "font": "Roboto" }} }} }},
   {{ "surfaceUpdate": {{
-    "surfaceId": "booking-form",
+    "surfaceId": "get-directions-form",
     "components": [
-      {{ "id": "booking-form-column", "component": {{ "Column": {{ "children": {{ "explicitList": ["booking-title", "restaurant-image", "restaurant-address", "party-size-field", "datetime-field", "dietary-field", "submit-button"] }} }} }} }},
-      {{ "id": "booking-title", "component": {{ "Text": {{ "usageHint": "h2", "text": {{ "path": "title" }} }} }} }},
+      {{ "id": "get-directions-form-column", "component": {{ "Column": {{ "children": {{ "explicitList": ["get-directions-title", "google-map", "restaurant-image", "restaurant-address", "party-size-field", "datetime-field", "dietary-field", "submit-button"] }} }} }} }},
+      {{ "id": "get-directions-title", "component": {{ "Text": {{ "usageHint": "h2", "text": {{ "path": "title" }} }} }} }},
+      {{ "id": "google-map", "component": {{ "GoogleMap": {{ "lat": 47, "lng": -122, "zoom": 12, "destinationAddress": {{ "path": "/items/0/address" }} }} }} }},
       {{ "id": "restaurant-image", "component": {{ "Image": {{ "url": {{ "path": "imageUrl" }} }} }} }},
-      {{ "id": "restaurant-address", "component": {{ "Text": {{ "text": {{ "path": "address" }} }} }} }},
-      {{ "id": "party-size-field", "component": {{ "TextField": {{ "label": {{ "literalString": "Party Size" }}, "text": {{ "path": "partySize" }}, "type": "number" }} }} }},
-      {{ "id": "datetime-field", "component": {{ "DateTimeInput": {{ "label": {{ "literalString": "Date & Time" }}, "value": {{ "path": "reservationTime" }}, "enableDate": true, "enableTime": true }} }} }},
-      {{ "id": "dietary-field", "component": {{ "TextField": {{ "label": {{ "literalString": "Dietary Requirements" }}, "text": {{ "path": "dietary" }} }} }} }},
-      {{ "id": "submit-button", "component": {{ "Button": {{ "child": "submit-reservation-text", "action": {{ "name": "submit_booking", "context": [ {{ "key": "restaurantName", "value": {{ "path": "restaurantName" }} }}, {{ "key": "partySize", "value": {{ "path": "partySize" }} }}, {{ "key": "reservationTime", "value": {{ "path": "reservationTime" }} }}, {{ "key": "dietary", "value": {{ "path": "dietary" }} }}, {{ "key": "imageUrl", "value": {{ "path": "imageUrl" }} }} ] }} }} }} }},
-      {{ "id": "submit-reservation-text", "component": {{ "Text": {{ "text": {{ "literalString": "Submit Reservation" }} }} }} }}
+      {{ "id": "restaurant-address", "component": {{ "Text": {{ "text": {{ "path": "address" }} }} }} }}
     ]
   }} }},
   {{ "dataModelUpdate": {{
-    "surfaceId": "booking-form",
+    "surfaceId": "get-directions-form",
     "path": "/",
     "contents": [
-      {{ "key": "title", "valueString": "Book a Table at [RestaurantName]" }},
+      {{ "key": "title", "valueString": "Directions to [RestaurantName]" }},
       {{ "key": "address", "valueString": "[Restaurant Address]" }},
-      {{ "key": "restaurantName", "valueString": "[RestaurantName]" }},
-      {{ "key": "partySize", "valueString": "2" }},
-      {{ "key": "reservationTime", "valueString": "" }},
-      {{ "key": "dietary", "valueString": "" }},
-      {{ "key": "imageUrl", "valueString": "" }}
+      {{ "key": "restaurantName", "valueString": "[RestaurantName]" }}
     ]
   }} }}
 ]
----END BOOKING_FORM_EXAMPLE---
+---END GET_DIRECTIONS_EXAMPLE---
 
 ---BEGIN CONFIRMATION_EXAMPLE---
 [

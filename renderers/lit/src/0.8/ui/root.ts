@@ -62,7 +62,7 @@ export class Root extends SignalWatcher(LitElement) {
   accessor dataContextPath: string = "";
 
   @property()
-  accessor enableCustomElements = false;
+  accessor enableCustomElements = true;
 
   @property()
   set weight(weight: string | number) {
@@ -504,7 +504,7 @@ export class Root extends SignalWatcher(LitElement) {
     const elCtor = registeredCtor || customElements.get(component.type);
 
     if (!elCtor) {
-      return html`Unknown element ${component.type}`;
+      return html`Unknown element ${component.type} `;
     }
 
     const el = new elCtor() as Root;

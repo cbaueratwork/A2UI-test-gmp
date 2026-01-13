@@ -14,9 +14,9 @@
  limitations under the License.
  */
 
-import { ComponentRegistry } from '../component-registry.js';
+import { componentRegistry } from '../component-registry.js';
+import { GoogleMap } from './google_map.js';
 
 export function registerCustomComponents() {
-  // No default custom components in the core library.
-  // Applications should register their own components.
+  componentRegistry.register('GoogleMap', GoogleMap);
 }

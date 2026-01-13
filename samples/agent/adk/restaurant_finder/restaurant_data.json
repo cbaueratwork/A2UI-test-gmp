@@ -5,7 +5,8 @@
         "imageUrl": "http://localhost:10002/static/shrimpchowmein.jpeg",
         "rating": "★★★★☆",
         "infoLink": "[More Info](https://www.xianfoods.com/)",
-        "address": "81 St Marks Pl, New York, NY 10003"
+        "address": "81 St Marks Pl, New York, NY 10003",
+        "placeId": "ChIJmTxuAhJgwokRZ8YGImWwpO0"
     },
     {
         "name": "Han Dynasty",
@@ -13,7 +14,8 @@
         "imageUrl": "http://localhost:10002/static/mapotofu.jpeg",
         "rating": "★★★★☆",
         "infoLink": "[More Info](https://www.handynasty.net/)",
-        "address": "90 3rd Ave, New York, NY 10003"
+        "address": "90 3rd Ave, New York, NY 10003",
+        "placeId": "ChIJb0Q8GIRYwokRHVhrqLQwn50"
     },
     {
         "name": "RedFarm",
@@ -21,7 +23,8 @@
         "imageUrl": "http://localhost:10002/static/beefbroccoli.jpeg",
         "rating": "★★★★☆",
         "infoLink": "[More Info](https://www.redfarmnyc.com/)",
-        "address": "529 Hudson St, New York, NY 10014"
+        "address": "529 Hudson St, New York, NY 10014",
+        "placeId": "ChIJx3LV_bWAj4ARlW17cSsmwp4"
     },
     {
         "name": "Mott 32",
@@ -29,7 +32,8 @@
         "imageUrl": "http://localhost:10002/static/springrolls.jpeg",
         "rating": "★★★★★",
         "infoLink": "[More Info](https://mott32.com/newyork/)",
-        "address": "111 W 57th St, New York, NY 10019"
+        "address": "111 W 57th St, New York, NY 10019",
+        "placeId": "ChIJyfIcUPdYwokRgCxMaeoOS9k"
     },
     {
         "name": "Hwa Yuan Szechuan",
@@ -37,7 +41,8 @@
         "imageUrl": "http://localhost:10002/static/kungpao.jpeg",
         "rating": "★★★★☆",
         "infoLink": "[More Info](https://hwayuannyc.com/)",
-        "address": "40 E Broadway, New York, NY 10002"
+        "address": "40 E Broadway, New York, NY 10002",
+        "placeId": "ChIJDS02PiZawokRUHmiu65dXy0"
     },
     {
         "name": "Cafe China",
@@ -45,7 +50,8 @@
         "imageUrl": "http://localhost:10002/static/mapotofu.jpeg",
         "rating": "★★★★☆",
         "infoLink": "[More Info](https://www.cafechinanyc.com/)",
-        "address": "59 W 37th St, New York, NY 10018"
+        "address": "59 W 37th St, New York, NY 10018",
+        "placeId": "ChIJhXTKrQBZwokRDA7Vijnq1AE"
     },
     {
         "name": "Philippe Chow",
@@ -53,7 +59,8 @@
         "imageUrl": "http://localhost:10002/static/beefbroccoli.jpeg",
         "rating": "★★★★☆",
         "infoLink": "[More Info](https://www.philippechow.com/)",
-        "address": "33 E 60th St, New York, NY 10022"
+        "address": "33 E 60th St, New York, NY 10022",
+        "placeId": "ChIJcYjz5e9YwokRO6lR3XH7PKA"
     },
     {
         "name": "Chinese Tuxedo",
@@ -61,6 +68,7 @@
         "imageUrl": "http://localhost:10002/static/mapotofu.jpeg",
         "rating": "★★★★☆",
         "infoLink": "[More Info](https://chinesetuxedo.com/)",
-        "address": "5 Doyers St, New York, NY 10013"
+        "address": "5 Doyers St, New York, NY 10013",
+        "placeId": "ChIJyW-u9iZawokRY1sHXGzZHGI"
     }
 ]
