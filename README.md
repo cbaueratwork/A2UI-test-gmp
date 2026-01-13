@@ -6,6 +6,22 @@ This is a forked version of the main project, with experimental support for Goog
 components. It uses Google Maps SDK standard components and those from the
 [extended library](https://github.com/googlemaps/extended-component-library/tree/main).
 
+## To Run
+
+**Prerequisites**
+1. Install Python
+2. Install Node
+3. Install uv from https://docs.astral.sh/uv/getting-started/installation/.
+
+**Steps**
+1. Open a terminal to `samples/agent/adk/restaurant_finder`
+2. Run `uv run .`
+3. Open a terminal to `samples/client/lit/shell`
+4. Run `npm install`
+5. Run `npm run dev`
+
+---
+
 A2UI is an open-source project, complete with a format
 optimized for representing updateable agent-generated
 UIs and an initial set of renderers, that allows agents
