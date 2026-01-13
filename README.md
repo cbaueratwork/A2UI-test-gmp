@@ -12,13 +12,16 @@ components. It uses Google Maps SDK standard components and those from the
 1. Install Python
 2. Install Node
 3. Install uv from https://docs.astral.sh/uv/getting-started/installation/.
+4. Follow setup instructions for GMP Grounding Lite: https://developers.google.com/maps/ai/grounding-lite
 
 **Steps**
+1. Ensure you have a `GEMINI_API_KEY` environment variable set.
+1. Ensure you have a `GOOGLE_MAPS_API_KEY` environment variable set.
 1. Open a terminal to `samples/agent/adk/restaurant_finder`
-2. Run `uv run .`
-3. Open a terminal to `samples/client/lit/shell`
-4. Run `npm install`
-5. Run `npm run dev`
+1. Run `uv run .`
+1. Open a terminal to `samples/client/lit/shell`
+1. Run `npm install`
+1. Run `npm run dev`
 
 ---
 
