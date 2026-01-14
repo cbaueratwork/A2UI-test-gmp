@@ -16,7 +16,11 @@
 
 import { componentRegistry } from '../component-registry.js';
 import { GoogleMap } from './google_map.js';
+import { PlaceCard } from './place_card.js';
+
 
 export function registerCustomComponents() {
   componentRegistry.register('GoogleMap', GoogleMap);
+  componentRegistry.register('PlaceCard', PlaceCard);
+
 }

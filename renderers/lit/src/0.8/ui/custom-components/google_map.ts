@@ -256,7 +256,7 @@ export class GoogleMap extends Root {
         <gmp-map
           center="${lat},${lng}"
           zoom="${zoom}"
-          map-id="DEMO_MAP_ID"
+          map-id="2d6e1a27a57efe3c399fe583"
         >
         ${this.destinationAddress ? html`
         <gmpx-route-overview

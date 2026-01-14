@@ -97,16 +97,9 @@ class RestaurantAgentExecutor(AgentExecutor):
             if action == "get_directions":
                 restaurant_name = ctx.get("restaurantName", "Unknown Restaurant")
                 address = ctx.get("address", "Address not provided")
-                image_url = ctx.get("imageUrl", "")
-                query = f"USER_WANTS_TO_GET_DIRECTIONS: {restaurant_name}, Address: {address}, ImageURL: {image_url}"
-
-            elif action == "submit_booking":
-                restaurant_name = ctx.get("restaurantName", "Unknown Restaurant")
-                party_size = ctx.get("partySize", "Unknown Size")
-                reservation_time = ctx.get("reservationTime", "Unknown Time")
-                dietary_reqs = ctx.get("dietary", "None")
-                image_url = ctx.get("imageUrl", "")
-                query = f"User submitted a booking for {restaurant_name} for {party_size} people at {reservation_time} with dietary requirements: {dietary_reqs}. The image URL is {image_url}"
+                image_url = ctx.get("imageUrl", "") 
+                place_id = ctx.get("placeId", "")
+                query = f"USER_WANTS_TO_GET_DIRECTIONS: {restaurant_name}, Address: {address}, ImageURL: {image_url}, PlaceID: {place_id}"
 
             else:
                 query = f"User submitted an event: {action} with data: {ctx}"

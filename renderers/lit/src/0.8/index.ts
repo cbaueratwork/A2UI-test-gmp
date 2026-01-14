@@ -22,5 +22,8 @@ import { componentRegistry } from "./ui/component-registry";
 import {
      GoogleMap
 } from "./ui/custom-components/google_map.js";
+import { PlaceCard } from "./ui/custom-components/place_card.js";
 
 componentRegistry.register("GoogleMap", GoogleMap, 'a2ui-google-map');
+componentRegistry.register("PlaceCard", PlaceCard, 'a2ui-place-card');
+

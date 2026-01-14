@@ -101,6 +101,24 @@ A2UI_SCHEMA = r'''
                       }
                     }
                   },
+                  "PlaceCard": {
+                    "type": "object",
+                    "properties": {
+                      "placeId": {
+                        "type": "object",
+                        "description": "The place ID to display. This can be a literal string or a reference to a value in the data model ('path', e.g., '/doc/title').",
+                        "properties": {
+                          "literalString": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string",
+                            "description": "The path to the place ID in the data model."
+                          }
+                        }
+                      }
+                    }
+                  },
                   "Text": {
                     "type": "object",
                     "properties": {

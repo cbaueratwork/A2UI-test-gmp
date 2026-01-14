@@ -46,7 +46,6 @@ def get_ui_prompt(base_url: str, examples: str) -> str:
     -   Always include a `GoogleMap` component IMMEDIATELY AFTER the title in the response. For the map, provide lat, lng, and zoom that would show all the restaurants in the viewport, and pinAddresses based on the restaurant data you have already received from the `get_restaurants` tool.
     -   If the query is for a list of restaurants, use the restaurant data you have already received from the `get_restaurants` tool to populate the `dataModelUpdate.contents` array (e.g., as a `valueMap` for the "items" key).
     -   If the number of restaurants is 5 or fewer, you MUST use the `SINGLE_COLUMN_LIST_EXAMPLE` template.
-    -   If the number of restaurants is more than 5, you MUST use the `TWO_COLUMN_LIST_EXAMPLE` template.
     -   If the query is to get directions (e.g., "USER_WANTS_TO_GET_DIRECTIONS..."), you MUST use the `GET_DIRECTIONS_EXAMPLE` template.
 
     {formatted_examples}

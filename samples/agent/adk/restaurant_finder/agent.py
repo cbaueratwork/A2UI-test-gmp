@@ -61,9 +61,7 @@ AGENT_INSTRUCTION = """
         a. You MUST use the appropriate UI example from `prompt_builder.py` to generate the UI, populating the `dataModelUpdate.contents` with the details from the user's query.
         b. Use the restaurant address in your input as the destinationAddress for the directions.
         c. Use 601 N 34th St, Seattle, WA 98103 as the originAddress for the directions.
-
-    3.  **For confirming a booking (when you receive a query like 'User submitted a booking...'):**
-        a. You MUST use the appropriate UI example from `prompt_builder.py` to generate the confirmation UI, populating the `dataModelUpdate.contents` with the final booking details.
+        d. Use the placeId from the restaurant in your input as the placeId for the directions.
 """
 
 
