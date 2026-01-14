@@ -1,4 +1,4 @@
-# A2UI: Agent-to-User Interface
+# A2UI GMP Explorations
 
 _Forked from https://github.com/google/A2UI_
 
@@ -23,7 +23,17 @@ components. It uses Google Maps SDK standard components and those from the
 1. Run `npm install`
 1. Run `npm run dev`
 
+## GMP tech used
+* [Grounding Lite](https://developers.google.com/maps/ai/grounding-lite) MCP server (to handle the user's query)
+* Maps JS [<gmp-map>](https://developers.google.com/maps/documentation/javascript/reference/map#MapElement) web component to render the map
+* [Map ID](https://developers.google.com/maps/documentation/javascript/cloud-customization) to provide custom styling
+* [Places UI Kit](https://developers.google.com/maps/documentation/javascript/places-ui-kit/overview) to render the place details
+* Routing widget from [GMP Extended Component Library](https://github.com/googlemaps/extended-component-library) to render the directions on the map
+* [A2UI actions](https://a2ui.org/transports/) to take the user's click on the "Get Directions" button and prompt the LLM to create the directions screen.
+
 ---
+
+_Forked content_
 
 A2UI is an open-source project, complete with a format
 optimized for representing updateable agent-generated
