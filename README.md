@@ -14,14 +14,26 @@ components. It uses Google Maps SDK standard components and those from the
 3. Install uv from https://docs.astral.sh/uv/getting-started/installation/.
 4. Follow setup instructions for GMP Grounding Lite: https://developers.google.com/maps/ai/grounding-lite
 
-**Steps**
+**Startup Steps**
 1. Ensure you have a `GEMINI_API_KEY` environment variable set.
 1. Ensure you have a `GOOGLE_MAPS_API_KEY` environment variable set.
 1. Open a terminal to `samples/agent/adk/restaurant_finder`
 1. Run `uv run .`
-1. Open a terminal to `samples/client/lit/shell`
+1. Open a second terminal and navigate to `renderers/lit`
+1. Run `npm install`
+1. Run `npm run build`
+1. `cd` to `samples/client/lit/shell`
 1. Run `npm install`
 1. Run `npm run dev`
+
+**Using the demo**
+1. Navigate to http://localhost:5173
+1. Enter a query such as "Sushi restaurants in Seattle" or "Taco joints in Mountain View"
+
+**Notes**
+* This code is intended to a proof of concept and is quite flaky. You may have to repeat a query to get a successful result
+* To see the code changes, [compare to the base fork](https://github.com/google/A2UI/compare/main...cbaueratwork:A2UI-test-gmp:main)
+* For the route navigation component, the "origin" address is hardcoded to the Google Fremont campus
 
 ## GMP tech used
 * [Grounding Lite](https://developers.google.com/maps/ai/grounding-lite) MCP server (to handle the user's query)
